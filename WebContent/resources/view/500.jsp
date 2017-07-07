@@ -127,7 +127,7 @@
 <body>
     <div class="box">
         <div class="clearfix">
-            <div class="figure"><img src="${pageContext.request.contextPath}/resources/img/500.jpg" alt="服务器内部错误"></div>
+            <div class="figure"><img src="${pageContext.request.contextPath}/resources/img/500.png" width="200" alt="服务器内部错误"></div>
     
             <h1>500页面</h1>
 
@@ -136,7 +136,7 @@
                 <p>任何疑问请联系网站管理员</p>
             </div>
 
-            <div class="p"><button type="button"      onclick="window.location.href='${pageContext.request.contextPath}/main/index'">返回主页</button>  <button type="button"      onclick="self.location=document.referrer;">返回上一页</button></div>
+            <div class="p"><button type="button"      onclick="window.location.href='${pageContext.request.contextPath}/main/index'">返回主页</button>  <button type="button"      onclick="javascript:history.back(-1);">返回上一页</button></div>
         </div>
     </div>
     <div class="footer text-center">

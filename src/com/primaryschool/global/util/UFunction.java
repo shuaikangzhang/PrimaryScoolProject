@@ -1,7 +1,6 @@
 package com.primaryschool.global.util;
 
 import java.text.ParseException;
-import java.text.ParsePosition;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -68,7 +67,7 @@ public class UFunction{
     * @throws
      */
     public static String dateSub(String dateStr){ 
-    	return  dateStr.substring(5);
+    	return  dateStr.substring(5,10);
     }
     
     /**

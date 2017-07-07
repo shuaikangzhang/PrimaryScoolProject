@@ -60,8 +60,8 @@ var CTPPATH="${pageContext.request.contextPath}";
 <c:when test="${dateInfo.beginApply eq 0 || empty dateInfo}">
 <div class="no-begin-apply">
 
-<img alt="" src="${CTP_APPLY}/img/no-begin.png"/><br>
-<span>暂未开始报名，请在报名时间之内开始报名</span>
+<img alt="" src="${CTP_APPLY}/img/未开启.png"/><br>
+<span>系统关闭报名功能</span>
 <span>该系统将会在报名时间之后关闭，请注意时间</span>
 <span>今年报名时间为：<b>
 <fmt:formatDate value="${dateInfo.startDate}" pattern="yyyy-MM-dd"/>
@@ -108,7 +108,7 @@ var CTPPATH="${pageContext.request.contextPath}";
 					</div>
 				</form><!-- form -->
 				<div class="button">
-					<a href="#">返回主页</a>
+					<a href="${pageContext.request.contextPath}/main/index">返回主页</a>
 				</div><!-- button -->
 			</section><!-- content -->
 		</div><!-- container -->
