@@ -35,6 +35,31 @@
             classpath*:config/spring-*.xml  
         </param-value>
   </context-param>
+    <!-- 配置 Druid 监控信息显示页面 -->  
+  <servlet>  
+    <servlet-name>DruidStatView</servlet-name>  
+    <servlet-class>com.alibaba.druid.support.http.StatViewServlet</servlet-class>  
+    <init-param>  
+    <!-- 允许清空统计数据 -->  
+    <param-name>resetEnable</param-name>  
+    <param-value>true</param-value>  
+    </init-param>  
+    <init-param>  
+    <!-- 用户名 -->  
+    <param-name>loginUsername</param-name>  
+    <param-value>primaryschool</param-value>  
+    </init-param>  
+    <init-param>  
+    <!-- 密码 -->  
+    <param-name>loginPassword</param-name>  
+    <param-value>123456</param-value>  
+    </init-param>  
+  </servlet>  
+  <servlet-mapping>  
+    <servlet-name>DruidStatView</servlet-name>  
+    <url-pattern>/druid/*</url-pattern>  
+  </servlet-mapping>
+
   <servlet>
     <servlet-name>springmvc</servlet-name>
     <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
@@ -46,7 +71,7 @@
   <servlet-mapping>
     <servlet-name>springmvc</servlet-name>
     <url-pattern>/</url-pattern>
-  </servlet-mapping>
+  </servlet-mapping>  
   <listener>
     <listener-class>
      org.springframework.web.util.IntrospectorCleanupListener
@@ -118,5 +143,18 @@
   <filter-mapping>
     <filter-name>LoginFilter</filter-name>
     <url-pattern>/apply/index/*</url-pattern>
+  </filter-mapping>
+  <!-- WebStatFilter用于采集web-jdbc关联监控的数据 -->
+  <filter>
+    <filter-name>DruidWebStatFilter</filter-name>
+    <filter-class>com.alibaba.druid.support.http.WebStatFilter</filter-class>
+    <init-param>
+        <param-name>exclusions</param-name>
+        <param-value>*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*</param-value>
+    </init-param>
+  </filter>
+  <filter-mapping>
+    <filter-name>DruidWebStatFilter</filter-name>
+    <url-pattern>/*</url-pattern>
   </filter-mapping>
 </web-app>
